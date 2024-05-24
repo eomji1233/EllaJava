@@ -16,11 +16,22 @@ public class Exercise_Loop2 {
 		 **
 		 *
 		 */
-		for (int i = 1; i < 5; i++) {
-			for (int j = 0; j < 1; j++) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 : ");
+		int num = sc.nextInt();
+		
+		for (int i=0; i<num; i++) {
+			for (int j=0; j<=i; j++) {
 				System.out.print("*");
 			}
-			System.out.println("");
+			System.out.println(" ");
+		}
+		for (int i=num-1; i>0; i--) {
+			for (int j=0; j<=i; j++) {
+				System.out.print("*");
+			}
+			System.out.println(" ");
 		}
 	}
 }

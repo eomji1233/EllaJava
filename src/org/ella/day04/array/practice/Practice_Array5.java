@@ -16,9 +16,10 @@ public class Practice_Array5 {
 		char [] words = new char[object.length()];  	// 만들어지는 문자배열은 입력한 문자열의 길이만큼 크기를 가짐
 		
 		for(int i = 0; i < object.length(); i++) {
-			words[i] = object.charAt(i); 	// 입력받은 문자열을 문자 하나하나 배열에 넣기 
-											// "문자열".charAt(0) 하면 ""안에 문자열 중 0번째에 해당하는 문자를 가져옴. 이 경우 '문'이 구해짐 
+			words[i] = object.charAt(i); 	// 입력받은 문자열을 문자 하나하나 배열에 넣기
+											// "문자열".charAt(0) 하면 ""안에 문자열 중 0번째에 해당하는 문자를 가져옴. 이 경우 '문'이 구해짐
 		}
+
 		System.out.print("검색할 문자 : ");
 		char search = sc.next().charAt(0);	// 검색할 문자 입력받기. 입력한 문자열에서 무조건 첫번째 문자를 구해줌
 		System.out.print(object + "에 " + search + "가 존재하는 위치(인덱스) : ");
