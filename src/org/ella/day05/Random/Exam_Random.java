@@ -21,13 +21,13 @@ public class Exam_Random {
 		/// num = rand.nextInt(10)+1; // 1 ~ 10 사이의 랜덤한 수
 		// System.out.print(num);
 
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 5; i++) {
 //			double randNum = Math.random();
 //			Random rand = new Random(); // 써야 됨
 //			rand.nextInt();				// rand를 통해서 원하는 기능 사용
 
 //			Math math = new Math(); 	// 안써도 됨
-			int randNum = (int) (Math.random() * 10); // 0 ~ 9 사이의 값
+			int randNum = (int) Math.random()*10; // 0 ~ 9 사이의 값
 
 			// 1 ~ 10 사이의 랜덤한 수를 출력하시오.
 			// (int)(Math.random()*10)+1
