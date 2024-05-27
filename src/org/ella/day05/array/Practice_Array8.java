@@ -17,19 +17,21 @@ public class Practice_Array8 {
 //		정수 : 5
 //		1, 2, 3, 2, 1
 		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 : ");
 		int num = sc.nextInt();
-		System.out.print("자연수 입력 : ");
-		int [] arr = new int[num]; 
-		for (int i = 1; i<num-2; i++);
-		{
-			arr[i] = i;
-		}
-		
-		
-		if (num < 4 || num % 2 == 0) {
+		int[] arr = new int[num];
+		if (num < 3 || num % 2 == 0) {
 			System.out.print("다시 입력하세요");
 		} else {
-			
+			for (int i = 1; i < (arr.length + 1) / 2; i++) {
+				arr[i] = i + 1;
+			}
+			for (int j = ((arr.length + 1) / 2) + 1; j > 0; j--) {
+				arr[j] = j;
+			}
+			for (int nums : arr) {
+				System.out.print(nums);
+			}
 		}
 	}
 }
