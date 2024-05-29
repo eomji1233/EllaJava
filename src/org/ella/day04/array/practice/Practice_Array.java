@@ -1,5 +1,6 @@
 package org.ella.day04.array.practice;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Practice_Array {
@@ -132,7 +133,6 @@ public class Practice_Array {
 	}
 
 	public void practice8() {
-
 		// 3 이상인 홀수 자연수를 입력 받아 배열의 중간까지는 1부터 1씩 증가하여 오름차순으로 값을 넣고,
 		// 중간 이후부터 끝까지는 1씩 감소하여 내림차순으로 값을 넣어 출력하세요.
 		// 단, 입력한 정수가 홀수가 아니거나 3 미만일 경우 “다시 입력하세요”를 출력하고
@@ -151,15 +151,35 @@ public class Practice_Array {
 		if (num < 3 || num % 2 == 0) {
 			System.out.print("다시 입력하세요");
 		} else {
-			for (int i = 1; i < (arr.length + 1) / 2; i++) {
+			for (int i = 0; i < (arr.length / 2) + 1; i++) {
 				arr[i] = i + 1;
 			}
-			for (int j = ((arr.length + 1) / 2) + 1; j > 0; j--) {
-				arr[j] = j;
+			for (int j = (arr.length / 2) + 1; j < arr.length; j++) {
+				arr[j] = arr.length - j;
 			}
 			for (int nums : arr) {
 				System.out.print(nums);
 			}
+		}
+	}
+
+	public void practice9() {
+		// 사용자가 입력한 값이 배열에 있는지 검색하여
+		// 있으면 “OOO 치킨 배달 가능“, 없으면 “OOO 치킨은 없는 메뉴입니다“를 출력하세요.
+		// 단, 치킨 메뉴가 들어가있는 배열은 본인 스스로 정하세요.
+		String[] menu = { "고추바사삭", "핫후라이드", "허니콤보", "황금올리브" };
+		Scanner sc = new Scanner(System.in);
+		System.out.print("치킨 이름을 입력하세요 : ");
+		String input = sc.next();
+		int i;
+		for (i = 0; i < menu.length; i++) {
+			if (input.equals(menu[i])) {
+				System.out.print(input + " 배달 가능");
+				break;
+			}
+		}
+		if (i == menu.length) { // 반복문을 모두 수행했는데 일치하는 값이 없을 때
+			System.out.print(input + "은(는) 없는 메뉴입니다.");
 		}
 	}
 
@@ -183,5 +203,71 @@ public class Practice_Array {
 		for (char i : copy) { // for-each문 쓸 때 배열의 데이터타입 쓰고 변수 자체설정!
 			System.out.print(i);
 		}
+	}
+
+	public void practice11() {
+		// 로또 번호 자동 생성기 프로그램을 작성하는데
+		// 중복 값 없이 오름차순으로 정렬하여 출력하세요.
+		Random rand = new Random();
+		int[] arr = new int[6];
+		for (int i = 0; i < arr.length; i++) {
+			int num = rand.nextInt(45) + 1;
+			arr[i] = num; // 여기 괄호 안에도 범위 지정해주기
+			for (int j = 0; j < i; j++) {
+				if (arr[i] == arr[j]) {
+					i--; // 만약 중복값이 있다면 배열 개수 줄이고 한번 더 뽑기!
+				}
+			}
+		}
+//				int[] temp = new int[arr.length];
+//				int j = 0;
+//				for (int i = 0; i < arr.length - 1; i++) {
+//					if (arr[i] != arr[i + 1]) {
+//						temp[j++] = arr[i];
+//					}
+//				}
+
+		for (int i = 0; i < arr.length - 1; i++) {
+			for (int j = 0; j < (arr.length - 1) - i; j++) { // 점점 증가하는 값을 빼줘야하니까 i값 빼주기
+				if (arr[j] > arr[j + 1]) {
+					int tempo = arr[j + 1];
+					arr[j + 1] = arr[j];
+					arr[j] = tempo;
+				}
+			}
+		}
+
+		for (int num : arr) {
+			System.out.print(num + " ");
+		}
+	}
+
+	public void practice12() {
+		int i = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+		String word = sc.next();
+		char[] alpha = new char[word.length()];
+		int sum = word.length();
+		for (i = 0; i < word.length(); i++) {
+			alpha[i] = word.charAt(i);
+			for (int j = 0; j < i; j++) {
+				alpha[j] = word.charAt(j);
+				if (alpha[i] == alpha[j]) {
+					sum--;
+				}
+			}
+		}
+
+		System.out.print("문자열에 있는 문자 : ");
+		for (char k = 0; k < alpha.length; k++) {
+			if (k == alpha.length - 1)
+				System.out.print(alpha[k]);
+			else
+				System.out.print(alpha[k] + ", ");
+		}
+		System.out.println();
+		System.out.print("문자 개수 : ");
+		System.out.print(sum);
 	}
 }
