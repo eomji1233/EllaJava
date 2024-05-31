@@ -25,7 +25,6 @@ public class ScoreProgram2 {
 			default:
 				displayMsg("1 ~ 3 사이의 수를 입력해주세요.");
 			}
-
 		}
 	}
 	private static void displayMsg(String message) { 
