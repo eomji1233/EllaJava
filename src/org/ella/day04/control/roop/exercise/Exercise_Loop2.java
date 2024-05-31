@@ -21,14 +21,14 @@ public class Exercise_Loop2 {
 		System.out.print("정수 : ");
 		int num = sc.nextInt();
 		
-		for (int i=0; i<num; i++) {
-			for (int j=0; j<=i; j++) {
+		for (int i = 0; i < num; i++) {
+			for (int j = 0; j <= i; j++) {
 				System.out.print("*");
 			}
 			System.out.println(" ");
 		}
-		for (int i=num-1; i>0; i--) {
-			for (int j=0; j<=i; j++) {
+		for (int i = num-1; i > 0; i--) {
+			for (int j = 0; j <= i; j++) {
 				System.out.print("*");
 			}
 			System.out.println(" ");
