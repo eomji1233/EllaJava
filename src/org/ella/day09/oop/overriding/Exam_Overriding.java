@@ -11,8 +11,8 @@ public class Exam_Overriding {
 	}
 
 	public static void main(String[] args) {
-//		Shape shape1 = new Shape();
-//		paint(shape1); 
+		Shape shape = new Shape();
+		paint(shape); 
 		Circle circle = new Circle();
 		paint(circle);	// 오버라이딩 된 메소드를 먼저 출력한다(동적바인딩)
 		Line line = new Line();
