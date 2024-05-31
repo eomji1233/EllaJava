@@ -3,7 +3,7 @@ package org.ella.day10.oop.interfaceex;
 public class SamsungPhone implements PhoneInterface{
 
 	@Override
-	public void pirntLogo() {
+	public void printLogo() {
 		System.out.println("===== SAMSUNG =====");
 	}
 
@@ -11,5 +11,4 @@ public class SamsungPhone implements PhoneInterface{
 	public void sendCall() {
 		System.out.println("===== S-PHONE CALL =====");
 	}
-
 }

@@ -6,7 +6,7 @@ public interface PhoneInterface {
 	public static final int Time_Out = 10000;
 	// public String name = "일용자"; // 일반필드 사용불가
 	
-	public abstract void pirntLogo();
+	public abstract void printLogo();
 //	public void sendCall() {};	// 일반메소드 사용불가
 								// Abstract methods do not specify a body
 	void sendCall();	// public abstract 생략 가능
