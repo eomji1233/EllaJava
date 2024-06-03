@@ -12,6 +12,7 @@ public class StartGame {
 		System.out.println("===== 경기 시작 =====");
 		int[] inning = new int[9];
 		System.out.println(Team.getTeamName() + "와 카카오 드림즈의 경기를 시작합니다!");
+		int j = 0; // j는 0으로 초기화해서 1번 타자부터 순차적으로 진행되게 만든다
 		for (int i = 1; i < inning.length + 1; i++) {
 			int outCount = 0;
 			int hitPlayer = 0;
@@ -36,29 +37,23 @@ public class StartGame {
 
 			System.out.println("-" + i + "회 말" + "-");
 			System.out.println("현재스코어 " + myScore + ":" + otherScore);
-			int playerOrder = 0;
-			int nextBatterIndex = playerOrder;
-			int lastBatterIndex = -1;
 
-			for (int j = 0; j < 9; j++) {
+			// j가 9면 10번 타자인 조건이기 때문에 0으로 초기화해서 1번 타자부터 치게 만든다
+			if (j >= 9) {
+				j = 0;
+			}
+
+			// j를 여기서 초기화하지 않기 때문에 이전 타자번호의 +1 번호로 올라간다
+			for (; j < 9; j++) {
 				if (outCount == 3) {
 					System.out.println("쓰리아웃! " + i + "회 말이 종료됩니다!");
 					System.out.println("=====================");
-
-					playerOrder = (lastBatterIndex + 1) % 9;
 					break;
 				}
-				if (playerOrder != 0) {
-					System.out.println("=====================");
-					System.out.println((playerOrder) + "번 타자 " + Team.getPlayerList()[playerOrder - 1]);
-					j = playerOrder - 1;
-				} 
+
 				System.out.println("=====================");
 				System.out.println((j + 1) + "번 타자 " + Team.getPlayerList()[j]);
 
-				if (outCount < 3) {
-					nextBatterIndex++;
-				}
 				int ballNum = 0;
 				int strikeNum = 0;
 				strike: while (true) {
@@ -131,12 +126,12 @@ public class StartGame {
 								break strike;
 							} else {
 								outCount++;
-								System.out.println("공 떴습니다! 중견수가 잡아냅니다 " + outCount + "아웃!");
+								System.out.println("공 떴습니다! 중견수가 잡아냅니다 " + outCount + " 아웃!");
 								break strike;
 							}
 						} else if (swing == 4) {
 							outCount++;
-							System.out.println("빗맞았습니다! 유격수 앞 땅볼 " + outCount + "아웃!");
+							System.out.println("빗맞았습니다! 유격수 앞 땅볼 " + outCount + " 아웃!");
 							break strike;
 						}
 						if (ballNum == 4 || strikeNum == 3) {
@@ -158,5 +153,4 @@ public class StartGame {
 		}
 		return null;
 	}
-
 }

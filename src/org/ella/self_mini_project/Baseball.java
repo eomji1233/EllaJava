@@ -24,7 +24,7 @@ public class Baseball {
 				Team game = gm.manageGame();
 				break;
 			case 4:
-				// 구단 해
+				// 구단 해체
 				view.deleteTeam();
 				break;
 			default:
