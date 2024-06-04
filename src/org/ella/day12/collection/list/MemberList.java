@@ -1,8 +1,6 @@
 package org.ella.day12.collection.list;
 
-class Member {
-	
-}
+class Member {}
 
 public class MemberList {
 	Member [] members;

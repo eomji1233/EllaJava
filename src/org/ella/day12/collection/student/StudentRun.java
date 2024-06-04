@@ -24,24 +24,23 @@ public class StudentRun {
 				List<Student> stdList = mng.selectAllStudents();
 //				if(stdList != null) // 이미 선언해서 null이 아님
 //				if(stdList.isEmpty()) // 비었는지 확인
-				if(stdList.size() > 0) // 하나라도 있는지 확인
+				if (stdList.size() > 0) // 하나라도 있는지 확인
 					view.displayStudents(stdList);
 				else
-					view.displayMsg("회원정보가 없습니다.");
+					view.displayMsg("학생 정보가 없습니다.");
 				break;
 			case 4: // 복습 여기 빡시게 하기
 				name = view.inputName("수정");
 //				Student student = mng.searchModifyStudent(name);
 //				student = view.modifyStudent(student);
-				
+
 //				int index = mng.searchIndexByName(name);
 //				Student student = mng.searchModifyStudent(name);
-				
+
 				// 많이 쓰이는 방식 - 타입이 다른 두개를 받아올 때 사용
 				Map<String, Object> result = mng.searchModifyStudent(name);
-				Student student 
-					= view.modifyStudent((Student)result.get("student"));
-				mng.modifyStudent((int)result.get("index"), student);
+				Student student = view.modifyStudent((Student) result.get("student"));
+				mng.modifyStudent((int) result.get("index"), student);
 				break;
 			case 5:
 				name = view.inputName("삭제");

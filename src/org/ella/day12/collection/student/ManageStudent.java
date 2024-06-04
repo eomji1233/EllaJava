@@ -32,7 +32,7 @@ public class ManageStudent implements ManageInterface {
 					searchList.add(std);
 				}
 			}
-			return searchList; 	// List<Student> searchList로 
+			return searchList; // List<Student> searchList로
 								// 새로 만들어서 리턴값이랑 일치!
 		}
 		return null;
@@ -69,12 +69,11 @@ public class ManageStudent implements ManageInterface {
 	}
 
 	public Map<String, Object> searchModifyStudent(String name) {
-		if(name != null) {
-			Map<String, Object> result 
-			= new HashMap<String, Object>();
-			for(int i = 0; i < sList.size(); i++) { // 전체에서
+		if (name != null) {
+			Map<String, Object> result = new HashMap<String, Object>();
+			for (int i = 0; i < sList.size(); i++) { // 전체에서
 				Student student = sList.get(i);
-				if(name.equals(student.getName())) { // 이름이 같으면
+				if (name.equals(student.getName())) { // 이름이 같으면
 					result.put("student", student);
 					result.put("index", i);
 					return result;
@@ -85,10 +84,10 @@ public class ManageStudent implements ManageInterface {
 	}
 
 	public int searchIndexByName(String name) {
-		if(name != null) {
+		if (name != null) {
 			int count = 0;
-			for(Student student : sList) { // sList에서 
-				if(name.equals(student.getName())) { // 이름이 같으면
+			for (Student student : sList) { // sList에서
+				if (name.equals(student.getName())) { // 이름이 같으면
 					return count;
 				}
 				count++;

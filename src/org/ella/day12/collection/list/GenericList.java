@@ -26,5 +26,4 @@ public class GenericList<T> {
 		objects = new Object[3];
 		size = 0;
 	}
-	
 }

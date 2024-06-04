@@ -42,7 +42,7 @@ public class Exam_MapCollection {
 		System.out.println("재직여부(true/false) : ");
 		boolean isWorking = sc.nextBoolean();
 		
-		// -> { "name" : name, "salary" : salary, "isWorking" : isWorking }
+		// js에서는 -> { "name" : name, "salary" : salary, "isWorking" : isWorking }
 		Map<String, Object> memberInfo = new HashMap<String, Object>();
 		memberInfo.put("name", name);
 		memberInfo.put("salary", salary);
