@@ -1,6 +1,6 @@
 package org.ella.day13.collection.music.model;
 
-public class Music {
+public class Music implements Comparable<Music>{
 	// 곡 명, 가수 명
 	private String title;
 	private String singer;
@@ -8,6 +8,7 @@ public class Music {
 	public Music() {}
 
 	public Music(String title, String singer) {
+		super();
 		this.title = title;
 		this.singer = singer;
 	}
@@ -32,5 +33,13 @@ public class Music {
 	public String toString() {
 		return "Music [title=" + title + ", singer=" + singer + "]";
 	}
+
+	@Override
+	public int compareTo(Music o) {
+		// TODO Auto-generated method stub
+		return this.title.compareTo(o.getTitle());
+	}
+	
+	
 
 }

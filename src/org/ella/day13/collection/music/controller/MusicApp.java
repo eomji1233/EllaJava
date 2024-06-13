@@ -45,12 +45,15 @@ public class MusicApp {
 						view.displayMsg("검색결과가 없습니다.");
 					break;
 				case 5:
+					// 수정할 곡명 입력
 					name = view.inputTitle("수정");
 					// 수정할 위치 입력받기
 					index = mng.searchIndexByName(name);
-					// 수정할 정보 입력받기
+					// 수정할 곡 찾기
 					music = mng.searchMusicByTitle(name);
+					// 수정할 정보 입력받기
 					music = view.modifyMusic(music);
+					// set메소드 써서 인덱스 값과 곡 정보 변경
 					mng.modifyMusic(index, music);
 //					Map<String, Object> result = mng.searchModifyMusic(title);
 //					music = view.modifyMusic((Music) result.get("music"));
@@ -59,9 +62,24 @@ public class MusicApp {
 				case 6:
 					name = view.inputTitle("삭제");
 					// 삭제할 위치
-					index = mng.searchOneBySinger(name);
-					// 해당값 삭제
-					mng.deleteMusic(index);
+					music = mng.searchMusicByTitle(name);
+					if(music != null) {
+						index = mng.searchIndexByName(name);
+						// 해당값 삭제
+						mng.deleteMusic(index);						
+					}
+					break;
+				case 7 : 
+					mng.sortByTitleASC();
+					break;
+				case 8 : 
+					mng.sortByTitleDESC();
+					break;
+				case 9 : 
+					mng.sortBySingerASC();
+					break;
+				case 10 : 
+					mng.sortBySingerDESC();
 					break;
 				case 0:
 					view.displayMsg("프로그램을 종료합니다.");
